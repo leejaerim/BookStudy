@@ -38,3 +38,52 @@ div{width:100px;height:100px; padding:10px; border:10px solid #000;display:inlin
 ![그림-1](image/Untitled2.png)
 
 그림-1
+
+```html
+<div style="
+	background:brown
+	border-radius : 15px;
+	outline : 10px solid brown;
+	border : 1px dashed #fff;
+	color : #fff;
+	box-shadow : 0 0 0 10px brown
+">stitched Pattern</div>
+<!-- 박스 쉐도우는 레디우스를 따라가고 아웃라인은 따라지 않음을 이용한 스티치 패턴 -->
+
+```
+
+### Position
+
+- STATIC | RELATIVE | ABSOLUTE | FIXED
+    - CARET POSITION & OFFSET
+        - OFFSET : 변경 불가능한 읽기전용 속성. (계산되어 도출된 값)
+        - OFFSET PARENT : 실제로 계산될 기준
+            1. NULL
+                - ROOT,HTML, BODY
+                - POSITION : FIXED
+                - OUT OF DOM TREE
+            2. RECURSIVE SEARCH
+                - PARENT.POSITION:FIXED. =NULL
+                - ***PARENT.POSITION:!STATIC  = OK (* Relative와 Absolute 일때 )***
+                    - static 내에서 position absolute을 사용할 때 relative로 감싸주어야 한다.
+                - BODY = OK
+                - TD, TH , TABLE = OK
+                - PARENT.PARENT CONTINUE
+        - OFFSET VALUE : offsetLeft, offsetTop, offsetWidth, offsetHeight, oppsetScrollTop…
+            - offsetScrollWidth, offsetScrollHeight → 실제 Content의 크기
+
+```html
+<div style="width:200px; height:200px; background:yellow; margin:100px;">
+	<div style="width:100px; height:100px; position:acsolute; background:red"></div>
+	<div style="width:100px; height:100px; position:acsolute; background:blue; left:0"></div>
+</div>
+<!-- dom상에 부모(OffsetParent)의 기본값을 기준으로 offset 을 잡게 된다. -->
+<!-- left, top 등 offset은 다음과 같이 position에 따라 다르게 계산된다. -->
+<!-- top, left는 OffsetParent를 기준으로 계산하는 속성 -->
+<!-- relative일때의 offset은 normarl flow로 그려졌을때 차이값 -->
+<!-- static일때는 offset은 무시합니다. -->
+
+	
+```
+
+###
