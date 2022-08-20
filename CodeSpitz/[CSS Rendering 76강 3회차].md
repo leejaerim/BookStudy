@@ -17,7 +17,7 @@
     - Rule은 Type , SelectorText and StyleObject가 존재(돔에도 들어있지만, 룰에도 존재)
     - CSSRULE_TYPE(참고)
         
-        ![Untitled](image/Untitled3.png)
+        ![CSS Rules](image/Untitled3.png)
         
     - 동적 InsertRule
         - sheet에 직접 추가도 가능
@@ -134,9 +134,119 @@ const Sheet = class{
 		this._rules = new Map;
 	}
 	add(selector){
-		const index = this._sheet 
+		const index = this._sheet.cssRules.length;
+		this._sheet.insertRule('${selector}{}',index);
+		const cssRule = this._sheet.cssRules[index];
+		const rule = new Rule(cssRule)
+		this._rule.set(selector , rule);
+		return rule;
 	}
+	remove(selector){
+		if(!this._rules.contains(selector)) return;
+		const rule = this._rules.get(seletor)._rule;
+		Array.from(this._sheet.cssRules).some((cssRule,index)=>{
+			if(cssRule === rule._rule){
+				this._sheet.deleteRule(index);
+				return true;
+			}
+		}
+	}
+	get(seletor){return this._rules.get(seletor);}}
 }
 ```
 
 ---
+
+```jsx
+const sheet = new Sheet(document.styleSheet[1]);
+sheet.add('body').set('background','#f00');
+sheet.add('.test').set('cssText','
+		width:200px;
+		border:1px solid #fff;
+		color : #000;
+		background : #fff;
+'); 
+```
+
+- 복잡한 css 오브젝트를 여러가지로 다룰 수 있는 방법에 대해 생각해보았다.
+- dom하나하나 다루는것보다 더 쉽게 편리하게 cssObject를 가깝게 다룰 수있다.
+
+---
+
+### KEYFRAMES_RULE COVER
+
+- 어떻게 구현되는지 공부한다.
+
+```css
+/* 키프레임 셀렉터를 어떻게 객체화 하고 다루는지 공부한다. */
+@keyframs size{
+	from{width:0}
+	to{width:500px}
+}
+```
+
+```jsx
+const sheet = new Sheet(document.styleSheets[1]);
+sheet.add('@keyframes size').set(???);
+//어떤 룰을 줄지는 sheet가 결정한다.
+//기존 Sheet 클래스에서 분기
+
+const Sheet = class{
+	constructor(sheet){
+		this._sheet = sheet
+		this._rules = new Map;
+	}
+	add(selector){
+		const index = this._sheet.cssRules.length;
+		this._sheet.insertRule('${selector}{}',index);
+		const cssRule = this._sheet.cssRules[index];
+		let rule;
+		if(selector.startsWith('@keyframes')){
+			rule = new KeyFramesRule(cssRule);
+		}else{
+			rule = new Rule(cssRule)		
+		}
+		
+		this._rule.set(selector , rule);
+		return rule;
+	}
+	remove(selector){
+		if(!this._rules.contains(selector)) return;
+		const rule = this._rules.get(seletor)._rule;
+		Array.from(this._sheet.cssRules).some((cssRule,index)=>{
+			if(cssRule === rule._rule){
+				this._sheet.deleteRule(index);
+				return true;
+			}
+		}
+	}
+	get(seletor){return this._rules.get(seletor);}}
+}
+```
+
+```jsx
+const KeyFrameRule = class{
+//Sheet객체와 비슷하다 내부에 스타일 객체처럼 생겼음
+//insertRule 을 appendRule로 바뀐것 외엔 크게 다르지 않다.
+	constructor(rule){...}
+	add(selector){...}
+	remove(selector){...}
+}
+const sheet = new Sheet(document.styleSheets[1]);
+const size =sheet.add('@keyframes size');
+size.add('from').set('width','0');
+size.add('to').set('width','500px');
+//keyframes 애니메이션을 동적으로 정의해서 쓸 수 있음.
+```
+
+---
+
+### 차세대 Typed CSSOM (오브젝트 모델링)
+
+```jsx
+$('#someDiv').style.height = 5 +'px';
+//다음과 같이 타입에대한 파싱 알고리즘이 돌아간다.
+$('#someDiv').styleMap.get('height');
+$('#someDiv').styleMap.set('height',h);//값으로 전달
+CSS.px(500); //500px
+```
