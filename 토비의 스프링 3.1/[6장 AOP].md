@@ -97,3 +97,135 @@ public class UserServiceTx implements UserService{
     - 이때의 Mockito 프레임워크를 적용할 수 있다.
 
 ---
+
+### 6.3 다이내믹 프록시와 팩토리빈
+
+- 핵심기능은 부가기능을 가진 클래스의 존재 자체를 모른다. → ***부가기능이 핵심기능을 사용하는 구조***
+    - 부가기능 클래스를 핵심기능을 가진 클래스처럼 꾸며서, 클라이언트에서 사용해야됌.
+    - 핵심기능으로 요청과 동시에 자신의 부가기능을 적용
+    - ex) 비지니스로직에서의 트랜젝션 기능
+- 이 때의 부가기능클래스를 ***프록시(*마치 대리인, 대리자 역할을 수행)***
+- 데코레이터 패턴
+    - 부가기능을 런타임에 다이내믹하게 부여하기 위한 패턴
+    - 프록시로서 동작하는 각 데코레이터 또한 인터페이스로 접근하기 때문에 자신이 최종타깃인지, 다음 단계의 프록시로 위임하는지 알 수 없다.
+    - 데코레이터 패턴을 위한 스프링 DI 설정
+        
+        ```xml
+        <bean id="userService" class="spring...UserServiceTx">
+        	<property name="transactionManager" ref="transactionManager" />
+        	<property name="userService" ref="userSErviceImpl"/>
+        </bean>
+        
+        <!-- 타깃 -->
+        <bean id="userServiceImpl" class="...UserServiceImpl">
+        	<property name="userDao" ref="userDao"/>
+        	<property name="mailSender" ref="mailSender"/>
+        </bean>
+        ```
+        
+- 데코레이터 패턴은 타깃의 코드를 손대지 않고, 클라이언트가 호출되는 방법을 손대지않은채, 새로운 기능을 추가할 수있다.
+- ***프록시패턴***
+    - 클라이언트가 타겟에 접근하는 방식을 변경해준다.(타깃의 기능자체에는 관여 X)
+    - 데코레이터와의 차이는, 자신이 만들거나 접근할 타겟클래스를 알고 있다.
+    - `java.lang.reflet` 패키지 내부에 프록시를 손쉽게 만드는 지원 클래스가 존재
+    
+    ```java
+    public class UserServiceTx implements UserService{
+    	UserService userService; //타깃 오브젝트
+    	...
+    	public void add(User user){ this.userService.add(user);}	
+    	//메소드 구현
+    	public void upgradeLevels(){
+    		TransactionStatus status = this.transactionManager.getTransaction(new
+    			DefaultTransactionDefinition()); //부가기능 수행
+    		try{
+    			userService.upgradeLevels();//위임
+    			this.transactionManager.commit(status);
+    		}catch(RuntimeException e){
+    			this.transactionManager.rollback(status);
+    			throw e;
+    		}
+    	}
+    }
+    ```
+    
+    - 2가지 문제점 존재 : 1. 타깃의 인터페이스 구현 및 위임 번거로움, 2. 중복 가능성
+        
+        ⇒ 리플렉션 사용. (다이내믹)
+        
+    
+    ```java
+    String name = Jaerimlee
+    
+    Method lengthMethod = String.class.getMethod("length");
+    
+    //name.length(); 커맨드 패턴.
+    int length = lengthMethod.invoke(name); 
+    ```
+    
+
+---
+
+### 프록시 클래스
+
+- 인터페이스와 타깃 오브젝트
+
+```java
+interface Hello{
+	String sayHello(String name);
+	String sayHi(String name);
+	String sayThankyou(String name);
+}
+
+public class HelloTarget implement Hello{
+	public String sayHello(String name){ return "Hello" + name;}
+	public String sayHi(String name){return "Hi"+nanme;}
+	...
+}
+```
+
+- ***프록시클래스***
+
+```java
+public class HelloUppercase implements Hello{
+	Hello hello ;
+	public HelloUppercase(Hello hello){
+		this.hello = hello;
+	}
+	public String sayHello(String name){
+		return this.hello.sayHello(name).toUpperCase();
+	}
+	public String sayHi(String name){
+		return this.hello.sayHi(name).toUpperCase();
+	}
+	public String sayThankyou(String name){
+		return this.hello.sayThankyou(name).toUpperCase();
+	}
+}
+```
+
+- 다이나믹 프록시 동작방식 → 프록시 팩토리에 의해 런타임 시 다이내믹하게 만들어지는 오브젝트
+- 프록시 팩토리를 사용해, 인터페이스 정보만 주면 인터페이스를 구현한 클래스 오브젝트를 만들어주기 때문,
+- 단, 프록시로서 필요한 부가기능 제공코드는 직접 작성해야 한다.
+    - 부가기능은 프록시오브젝트와 InvocationHandler를 구현한 오브젝트
+    - InvocationHandler오브젝트는 invoke메소드만을 가진 클래스로, 리플랙션 메서드 인터페이스를 파라미터로 받는다.
+    - 다이나믹 프록시 → InvocationHandler(invoke()) → TargetObject
+    
+    ```java
+    public class UppercaseHandler implements InvocationHandler{
+    	Hello target;
+    	public UppercaseHandler(Hello target){this.target = target;}
+    	public Object invoke(Object proxy, Method method, Object[] args){
+    		String ret = (String)method.invoke(target,args); // 타깃으로 위임, 인터페이스 메소드호출에 적용
+    		return ret.toUpperCase(); //부가 기능 제공
+    	}
+    }
+    
+    Hello proxiedHello = (Hello)Proxy.newProxyInstance(
+    //동적으로 생성되는 다이내믹 프록시 클래스의 로딩에 사용할 클래스 로더, 구현할 인터페이스
+    	getClass().getClassLoader(),new Class[] {Hello.Class}, new UppercaseHandler(new HelloTarget()));
+    ```
+    
+    - 클래스 로더 , 인터페이스, InvocationHandler 구현 오브젝트 제공
+
+---
