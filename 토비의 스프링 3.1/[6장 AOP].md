@@ -229,3 +229,104 @@ public class HelloUppercase implements Hello{
     - 클래스 로더 , 인터페이스, InvocationHandler 구현 오브젝트 제공
 
 ---
+
+- 다이나믹 프록시의 확장
+    - 인터페이스 메소드의 양에 관계없이 자동으로 생성해주며, invoke() 메소드에서 부가기능을 처리
+    - 런타임 시, 캐스팅에 각별한 유의가 필요하다.
+    
+    ```java
+    public class UppercaseHandler implements InvocationHandler{
+    	Object target;
+    	private UppercaseHandler(Object target){ this.target = target;}
+    	public Object invoke(Object proxy, Method method, Object[] args){
+    		Object ret = method.invoke(target,args);
+    		if(ret instanceof String){
+    			return ((String)ret).toUpperCase();
+    		}
+    		else{return ret;}
+    	}
+    }
+    ```
+    
+- ***이를 이용해, 우리는 트랜잭션 부가기능을 제공하는 다이내믹 프록시를 만들어 적용하고자 한다.***
+
+```java
+public class TransactionHandler implements InvocationHandler{
+	private Object target;
+	...
+	public Object invoke(Object proxy, Method method, Object[] args){
+		if(methoed.getName().startsWith(pattern)){
+			return invokeInTransaction(method, args);
+		}else{
+			return method.invoke(target,args);
+		}
+	}
+	private Object invokeInTransaction(Method method, Object[] args){
+		TransactionStatus status = this.transactionManager.getTransaction(new 
+			DefaultTransactionDefinition());
+		try{
+			Object ret = method.invoke(target,args);
+			this.transactionManager.commit(status);
+			return ret;
+		}catch(e){
+			this.transactionManager.rollback(status);
+		}
+	}
+}
+```
+
+- 롤백을 적용하기위한 예외는 RuntimeException이 아닌, InvocationTargetException 으로 잡아줘야한다.
+
+---
+
+### 6.3.4 다이내믹 프록시를 위한 팩토리 빈
+
+- DI 대상이 되는 다이내믹프록시 오브젝트는 스프링빈으로 등록이 불가능하다.
+- `Date now = (Date) Class.forName("java.util.Date").newInstance();`
+
+<aside>
+💡 다이내믹 프록시는 Proxy 클래스의 newProxyInstance() 스테틱 팩토리 메소드를 통해서만 만들수 있다.
+
+</aside>
+
+1. 팩토리빈 
+
+```java
+public interface FactoryBean<T> {
+	T getObject() throws Exception; //빈 오브젝트 생성하여 돌려준다.
+	Class<? extends T> getObjectType();
+	boolean isSingleton(); //싱글톤오브젝트 여부
+}
+```
+
+```java
+public class Message{
+	String text;
+	private Message(String text){this.text = text;}//외부생성자를 통한 오브젝트 생성 X
+	//리플랙션은 강력한 기능으로 private 생성자가 가능하지만, 권장하지 않는다.
+	...get, set...
+	public static Message newMessage(String text){
+		return new Message(text);
+	}
+}
+```
+
+→ Message클래스의 팩토리빈클래스
+
+```java
+public class MessageFactoryBean implements FactoryBean<Message>{
+	String text;
+	public void setText(String text){this.text = text;}
+	public Message getObject() throws Exception{
+		return Message.newMessage(this.text);
+	}
+	public Class<? extends Message> getObejctType(){
+		return Message.class;
+	}
+	public boolean isSingleton(){return false;}
+}
+```
+
+---
+
+### 팩토리빈의 설정방법
