@@ -8,15 +8,14 @@
 - 파일명은 [카테고리명] 챕터명으로 작성합니다.  
 - 자주 읽어볼만한 토픽의 경우, README의 하단의 목차에 업데이트 하도록 합니다.
 ---
-### 친절한 SQL 튜닝
+### 실용주의 프로그래머
 
-- [인덱스 기본](https://github.com/leejaerim/BookStudy/blob/main/%EC%B9%9C%EC%A0%88%ED%95%9C%20SQL%20%ED%8A%9C%EB%8B%9D/%5B%EC%B9%9C%EC%A0%88%ED%95%9C%20SQL%20%ED%8A%9C%EB%8B%9D%5D%20%EC%9D%B8%EB%8D%B1%EC%8A%A4%20%EA%B8%B0%EB%B3%B8.md)
-- [SQL 처리과정과 IO](https://github.com/leejaerim/BookStudy/blob/main/%EC%B9%9C%EC%A0%88%ED%95%9C%20SQL%20%ED%8A%9C%EB%8B%9D/%5B%EC%B9%9C%EC%A0%88%ED%95%9C%20SQL%20%ED%8A%9C%EB%8B%9D%5D%20SQL%20%EC%B2%98%EB%A6%AC%20%EA%B3%BC%EC%A0%95%EA%B3%BC%20IO.md)
-- [인덱스의 확장 기능](https://github.com/leejaerim/BookStudy/blob/main/%EC%B9%9C%EC%A0%88%ED%95%9C%20SQL%20%ED%8A%9C%EB%8B%9D/%5B%EC%B9%9C%EC%A0%88%ED%95%9C%20SQL%20%ED%8A%9C%EB%8B%9D%5D%20%EC%9D%B8%EB%8D%B1%EC%8A%A4%20%ED%99%95%EC%9E%A5%20%EA%B8%B0%EB%8A%A5.md)
-- [인덱스의 구성](https://github.com/leejaerim/BookStudy/blob/main/%EC%B9%9C%EC%A0%88%ED%95%9C%20SQL%20%ED%8A%9C%EB%8B%9D/%5B%EC%B9%9C%EC%A0%88%ED%95%9C%20SQL%20%ED%8A%9C%EB%8B%9D%5D%20%EC%9D%B8%EB%8D%B1%EC%8A%A4%EC%9D%98%20%EA%B5%AC%EC%84%B1.md)
-- [조인 튜닝](https://github.com/leejaerim/BookStudy/blob/main/%EC%B9%9C%EC%A0%88%ED%95%9C%20SQL%20%ED%8A%9C%EB%8B%9D/%5B%EC%B9%9C%EC%A0%88%ED%95%9C%20SQL%20%ED%8A%9C%EB%8B%9D%5D%20%EC%A1%B0%EC%9D%B8%ED%8A%9C%EB%8B%9D.md)
+- [실용주의 접근법](https://github.com/leejaerim/BookStudy/blob/main/%EC%8B%A4%EC%9A%A9%EC%A3%BC%EC%9D%98%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8/%5B%EC%8B%A4%EC%9A%A9%EC%A3%BC%EC%9D%98%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%5D%202%EC%9E%A5%20%EC%8B%A4%EC%9A%A9%EC%A3%BC%EC%9D%98%20%EC%A0%91%EA%B7%BC%EB%B2%95.md)
+- [기본 도구](https://github.com/leejaerim/BookStudy/blob/main/%EC%8B%A4%EC%9A%A9%EC%A3%BC%EC%9D%98%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8/%5B%EC%8B%A4%EC%9A%A9%EC%A3%BC%EC%9D%98%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%5D%203%EC%9E%A5%20%EA%B8%B0%EB%B3%B8%20%EB%8F%84%EA%B5%AC.md)
+- [구부러지거나 부러지거나](https://github.com/leejaerim/BookStudy/blob/main/%EC%8B%A4%EC%9A%A9%EC%A3%BC%EC%9D%98%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8/%5B%EC%8B%A4%EC%9A%A9%EC%A3%BC%EC%9D%98%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%5D%205%EC%9E%A5%20%EA%B5%AC%EB%B6%80%EB%9F%AC%EC%A7%80%EA%B1%B0%EB%82%98%20%EB%B6%80%EB%9F%AC%EC%A7%80%EA%B1%B0%EB%82%98.md)
+- [프로젝트 전에](https://github.com/leejaerim/BookStudy/blob/main/%EC%8B%A4%EC%9A%A9%EC%A3%BC%EC%9D%98%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8/%5B%EC%8B%A4%EC%9A%A9%EC%A3%BC%EC%9D%98%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%5D%206%EC%9E%A5%20%EB%8F%99%EC%8B%9C%EC%84%B1.md)
+- [코딩하는 동안](https://github.com/leejaerim/BookStudy/blob/main/%EC%8B%A4%EC%9A%A9%EC%A3%BC%EC%9D%98%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8/%5B%EC%8B%A4%EC%9A%A9%EC%A3%BC%EC%9D%98%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%5D%207%EC%9E%A5%20%EC%BD%94%EB%94%A9%ED%95%98%EB%8A%94%20%EB%8F%99%EC%95%88.md)
 ---
-
 ### 토비의 스프링
 
 - [스프링](https://github.com/leejaerim/BookStudy/blob/main/%ED%86%A0%EB%B9%84%EC%9D%98%20%EC%8A%A4%ED%94%84%EB%A7%81%203.1/%5B%ED%86%A0%EB%B9%84%EC%8A%A4%ED%94%84%EB%A7%81%5D%20%ED%94%84%EB%A1%A4%EB%A1%9C%EA%B7%B8%20%26%201%EC%9E%A5%20%EC%8A%A4%ED%94%84%EB%A7%81.md)
@@ -25,6 +24,12 @@
 - [예외](https://github.com/leejaerim/BookStudy/blob/main/%ED%86%A0%EB%B9%84%EC%9D%98%20%EC%8A%A4%ED%94%84%EB%A7%81%203.1/%5B%ED%86%A0%EB%B9%84%EC%8A%A4%ED%94%84%EB%A7%81%5D%204%EC%9E%A5%20%EC%98%88%EC%99%B8.md)
 - [서비스추상화](https://github.com/leejaerim/BookStudy/blob/main/%ED%86%A0%EB%B9%84%EC%9D%98%20%EC%8A%A4%ED%94%84%EB%A7%81%203.1/%5B%ED%86%A0%EB%B9%84%EC%8A%A4%ED%94%84%EB%A7%81%5D%205%EC%9E%A5%20%EC%84%9C%EB%B9%84%EC%8A%A4%EC%B6%94%EC%83%81%ED%99%94.md)
 - [AOP](https://github.com/leejaerim/BookStudy/blob/main/%ED%86%A0%EB%B9%84%EC%9D%98%20%EC%8A%A4%ED%94%84%EB%A7%81%203.1/%5B%ED%86%A0%EB%B9%84%EC%8A%A4%ED%94%84%EB%A7%81%5D%206%EC%9E%A5%20AOP.md)
+---
+### Object
+
+- [다형성](https://github.com/leejaerim/BookStudy/blob/main/Object/%5BObject%5D%20%EB%8B%A4%ED%98%95%EC%84%B1.md)
+- [서브클래스 그리고 서브타이핑](https://github.com/leejaerim/BookStudy/blob/main/Object/%5BObject%5D%20%EC%84%9C%EB%B8%8C%ED%81%B4%EB%9E%98%EC%8B%B1%EA%B3%BC%20%EC%84%9C%EB%B8%8C%ED%83%80%EC%9D%B4%ED%95%91.md)
+- [합성과 유연한 설계](https://github.com/leejaerim/BookStudy/blob/main/Object/%5BObject%5D%20%ED%95%A9%EC%84%B1%EA%B3%BC%20%EC%9C%A0%EC%97%B0%ED%95%9C%20%EC%84%A4%EA%B3%84.md)
 ---
 ### CodeSpitz
 
@@ -36,10 +41,13 @@
 - [Visitor](https://github.com/leejaerim/BookStudy/blob/main/CodeSpitz/%5BCodeSpitz%5D%20Visitor.md)
 - [Composite Pattern](https://github.com/leejaerim/BookStudy/blob/main/CodeSpitz/%5BCodeSpitz%5D%20%EC%98%A4%EB%B8%8C%EC%A0%9D%ED%8A%B8%202%2084%EA%B0%95%204%ED%9A%8C%EC%B0%A8%20Composite%20Pattern.md)
 ---
-### Object
-- [다형성](https://github.com/leejaerim/BookStudy/blob/main/Object/%5BObject%5D%20%EB%8B%A4%ED%98%95%EC%84%B1.md)
-- [서브클래스 그리고 서브타이핑](https://github.com/leejaerim/BookStudy/blob/main/Object/%5BObject%5D%20%EC%84%9C%EB%B8%8C%ED%81%B4%EB%9E%98%EC%8B%B1%EA%B3%BC%20%EC%84%9C%EB%B8%8C%ED%83%80%EC%9D%B4%ED%95%91.md)
-- [합성과 유연한 설계](https://github.com/leejaerim/BookStudy/blob/main/Object/%5BObject%5D%20%ED%95%A9%EC%84%B1%EA%B3%BC%20%EC%9C%A0%EC%97%B0%ED%95%9C%20%EC%84%A4%EA%B3%84.md)
+### 친절한 SQL 튜닝
+
+- [인덱스 기본](https://github.com/leejaerim/BookStudy/blob/main/%EC%B9%9C%EC%A0%88%ED%95%9C%20SQL%20%ED%8A%9C%EB%8B%9D/%5B%EC%B9%9C%EC%A0%88%ED%95%9C%20SQL%20%ED%8A%9C%EB%8B%9D%5D%20%EC%9D%B8%EB%8D%B1%EC%8A%A4%20%EA%B8%B0%EB%B3%B8.md)
+- [SQL 처리과정과 IO](https://github.com/leejaerim/BookStudy/blob/main/%EC%B9%9C%EC%A0%88%ED%95%9C%20SQL%20%ED%8A%9C%EB%8B%9D/%5B%EC%B9%9C%EC%A0%88%ED%95%9C%20SQL%20%ED%8A%9C%EB%8B%9D%5D%20SQL%20%EC%B2%98%EB%A6%AC%20%EA%B3%BC%EC%A0%95%EA%B3%BC%20IO.md)
+- [인덱스의 확장 기능](https://github.com/leejaerim/BookStudy/blob/main/%EC%B9%9C%EC%A0%88%ED%95%9C%20SQL%20%ED%8A%9C%EB%8B%9D/%5B%EC%B9%9C%EC%A0%88%ED%95%9C%20SQL%20%ED%8A%9C%EB%8B%9D%5D%20%EC%9D%B8%EB%8D%B1%EC%8A%A4%20%ED%99%95%EC%9E%A5%20%EA%B8%B0%EB%8A%A5.md)
+- [인덱스의 구성](https://github.com/leejaerim/BookStudy/blob/main/%EC%B9%9C%EC%A0%88%ED%95%9C%20SQL%20%ED%8A%9C%EB%8B%9D/%5B%EC%B9%9C%EC%A0%88%ED%95%9C%20SQL%20%ED%8A%9C%EB%8B%9D%5D%20%EC%9D%B8%EB%8D%B1%EC%8A%A4%EC%9D%98%20%EA%B5%AC%EC%84%B1.md)
+- [조인 튜닝](https://github.com/leejaerim/BookStudy/blob/main/%EC%B9%9C%EC%A0%88%ED%95%9C%20SQL%20%ED%8A%9C%EB%8B%9D/%5B%EC%B9%9C%EC%A0%88%ED%95%9C%20SQL%20%ED%8A%9C%EB%8B%9D%5D%20%EC%A1%B0%EC%9D%B8%ED%8A%9C%EB%8B%9D.md)
 ---
 ### 그림으로 배우는 네트워크 원리
 - [네트워크 계층](https://github.com/leejaerim/BookStudy/blob/main/%EA%B7%B8%EB%A6%BC%EC%9C%BC%EB%A1%9C%EB%B0%B0%EC%9A%B0%EB%8A%94%20%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%20%EC%9B%90%EB%A6%AC/%5B%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%20%EC%9B%90%EB%A6%AC%5D%203%EC%9E%A5%20%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%20%EA%B3%84%EC%B8%B5.md)
@@ -59,15 +67,8 @@
 - [메모리 관리](https://github.com/leejaerim/BookStudy/blob/main/%EC%8B%A4%EC%8A%B5%EA%B3%BC%20%EA%B7%B8%EB%A6%BC%EC%9C%BC%EB%A1%9C%20%EB%B0%B0%EC%9A%B0%EB%8A%94%20%EB%A6%AC%EB%88%85%EC%8A%A4%20%EA%B5%AC%EC%A1%B0/%5B%EB%A6%AC%EB%88%85%EC%8A%A4%EA%B5%AC%EC%A1%B0%5D%205%EC%9E%A5%20%EB%A9%94%EB%AA%A8%EB%A6%AC%20%EA%B4%80%EB%A6%AC.md)
 - [파일 시스템](https://github.com/leejaerim/BookStudy/blob/main/%EC%8B%A4%EC%8A%B5%EA%B3%BC%20%EA%B7%B8%EB%A6%BC%EC%9C%BC%EB%A1%9C%20%EB%B0%B0%EC%9A%B0%EB%8A%94%20%EB%A6%AC%EB%88%85%EC%8A%A4%20%EA%B5%AC%EC%A1%B0/%5B%EB%A6%AC%EB%88%85%EC%8A%A4%EA%B5%AC%EC%A1%B0%5D%207%EC%9E%A5%20%ED%8C%8C%EC%9D%BC%EC%8B%9C%EC%8A%A4%ED%85%9C.md)
 ---
-### 실용주의 프로그래머
-
-- [실용주의 접근법](https://github.com/leejaerim/BookStudy/blob/main/%EC%8B%A4%EC%9A%A9%EC%A3%BC%EC%9D%98%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8/%5B%EC%8B%A4%EC%9A%A9%EC%A3%BC%EC%9D%98%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%5D%202%EC%9E%A5%20%EC%8B%A4%EC%9A%A9%EC%A3%BC%EC%9D%98%20%EC%A0%91%EA%B7%BC%EB%B2%95.md)
-- [기본 도구](https://github.com/leejaerim/BookStudy/blob/main/%EC%8B%A4%EC%9A%A9%EC%A3%BC%EC%9D%98%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8/%5B%EC%8B%A4%EC%9A%A9%EC%A3%BC%EC%9D%98%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%5D%203%EC%9E%A5%20%EA%B8%B0%EB%B3%B8%20%EB%8F%84%EA%B5%AC.md)
-- [구부러지거나 부러지거나](https://github.com/leejaerim/BookStudy/blob/main/%EC%8B%A4%EC%9A%A9%EC%A3%BC%EC%9D%98%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8/%5B%EC%8B%A4%EC%9A%A9%EC%A3%BC%EC%9D%98%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%5D%205%EC%9E%A5%20%EA%B5%AC%EB%B6%80%EB%9F%AC%EC%A7%80%EA%B1%B0%EB%82%98%20%EB%B6%80%EB%9F%AC%EC%A7%80%EA%B1%B0%EB%82%98.md)
-- [프로젝트 전에](https://github.com/leejaerim/BookStudy/blob/main/%EC%8B%A4%EC%9A%A9%EC%A3%BC%EC%9D%98%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8/%5B%EC%8B%A4%EC%9A%A9%EC%A3%BC%EC%9D%98%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%5D%206%EC%9E%A5%20%EB%8F%99%EC%8B%9C%EC%84%B1.md)
-- [코딩하는 동안](https://github.com/leejaerim/BookStudy/blob/main/%EC%8B%A4%EC%9A%A9%EC%A3%BC%EC%9D%98%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8/%5B%EC%8B%A4%EC%9A%A9%EC%A3%BC%EC%9D%98%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%5D%207%EC%9E%A5%20%EC%BD%94%EB%94%A9%ED%95%98%EB%8A%94%20%EB%8F%99%EC%95%88.md)
----
 ### Fluent Python
+
 - [시퀀스](https://github.com/leejaerim/BookStudy/blob/main/Fluent%20Python/%5BFluent%20Python%5D%202%EC%9E%A5%20%EC%8B%9C%ED%80%80%EC%8A%A4.md)
 - [딕셔너리](https://github.com/leejaerim/BookStudy/blob/main/Fluent%20Python/%5BFluent%20Python%5D%203%EC%9E%A5%20%EB%94%95%EC%85%94%EB%84%88%EB%A6%AC%EC%99%80%20%EC%A7%91%ED%95%A9.md)
 ---
