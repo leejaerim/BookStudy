@@ -73,4 +73,4 @@
 - [딕셔너리](https://github.com/leejaerim/BookStudy/blob/main/Fluent%20Python/%5BFluent%20Python%5D%203%EC%9E%A5%20%EB%94%95%EC%85%94%EB%84%88%EB%A6%AC%EC%99%80%20%EC%A7%91%ED%95%A9.md)
 ---
 
-### EOD
+### EOF
